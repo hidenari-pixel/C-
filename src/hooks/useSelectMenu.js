@@ -1,4 +1,4 @@
-import { currentState, store } from "../modules/Reducers";
+import { mazeSlice, store } from "../modules/Modules";
 import { useSelector, useDispatch } from "react-redux";
 
 const useSelectMenu = () => {
@@ -6,45 +6,45 @@ const useSelectMenu = () => {
   const dispatch = useDispatch();
 
   const handleSizeChange = (size) => {
-    const sizeChange = currentState.actions.sizeChange(Number(size));
+    const sizeChange = mazeSlice.actions.sizeChange(Number(size));
     dispatch(sizeChange);
   };
 
   const handleModeChange = (mode) => {
-    const modeChange = currentState.actions.modeChange(Number(mode));
+    const modeChange = mazeSlice.actions.modeChange(Number(mode));
     dispatch(modeChange);
   };
 
   const handleSetMaze = () => {
-    const setMaze = currentState.actions.setMaze();
-    const update = currentState.actions.updateTimer();
+    const setMaze = mazeSlice.actions.setMaze();
+    const update = mazeSlice.actions.updateTimer();
     const intervalID = setInterval(() => dispatch(update), 10);
-    const start = currentState.actions.startTimer(intervalID);
+    const start = mazeSlice.actions.startTimer(intervalID);
     dispatch(setMaze);
     dispatch(start);
   };
 
   const openModalWindow = () => {
-    const openWindow = currentState.actions.openWindow(true);
+    const openWindow = mazeSlice.actions.openWindow(true);
     dispatch(openWindow);
   };
 
   const closeModalWindow = () => {
     const { timer } = store.getState();
     const close = timer === "stop" ? true : false;
-    const closeWindow = currentState.actions.closeWindow(close);
+    const closeWindow = mazeSlice.actions.closeWindow(close);
     dispatch(closeWindow);
 
     if (timer === "start" || timer === "pause") {
-      const update = currentState.actions.updateTimer();
+      const update = mazeSlice.actions.updateTimer();
       const intervalID = setInterval(() => dispatch(update), 10);
-      const resume = currentState.actions.startTimer(intervalID);
+      const resume = mazeSlice.actions.startTimer(intervalID);
       dispatch(resume);
     }
   };
 
   const handleShowAnswer = () => {
-    const showAnswer = currentState.actions.showAnswer(true);
+    const showAnswer = mazeSlice.actions.showAnswer(true);
     dispatch(showAnswer);
   };
 

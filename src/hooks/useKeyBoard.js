@@ -1,4 +1,4 @@
-import { currentState, getKeyArray, X, Y } from "../modules/Reducers";
+import { mazeSlice, getKeyArray, X, Y } from "../modules/Modules";
 import { useSelector, useDispatch } from "react-redux";
 
 const getPayload = (key) => {
@@ -47,7 +47,7 @@ const useKeyBoard = () => {
 
   const keyDownAction = (key) => {
     const payload = getPayload(key);
-    const movePoint = currentState.actions.movePoint(payload);
+    const movePoint = mazeSlice.actions.movePoint(payload);
     dispatch(movePoint);
   };
   return {

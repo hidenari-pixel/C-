@@ -1,11 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 import Header from "./Header";
 import ModalSelect from "./ModalSelect";
 import Timer from "./Timer";
 import Show from "./Show";
 import SPDisplay from "./SPDisplay";
 import "../App.css";
-import styled from "styled-components";
 
 const App = () => {
   return (

@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import useTimer from "../hooks/useTimer";
 import TimerDisplay from "./TimerDisplay";

@@ -1,12 +1,14 @@
+import React from "react";
 import { Button } from "@material-ui/core";
 import useSelectMenu from "../hooks/useSelectMenu";
+import styled from "styled-components";
 
 const Buttons = () => {
   const { timer, handleSetMaze, handleShowAnswer, closeModalWindow } =
     useSelectMenu();
   if (timer !== "stop") {
     return (
-      <div>
+      <Wrapper>
         <Button
           color="primary"
           variant="contained"
@@ -31,9 +33,10 @@ const Buttons = () => {
         >
           閉じる
         </Button>
-      </div>
+      </Wrapper>
     );
   }
+
   return (
     <Button color="primary" variant="contained" onClick={() => handleSetMaze()}>
       生成{"&"}スタート
@@ -42,3 +45,7 @@ const Buttons = () => {
 };
 
 export default Buttons;
+
+const Wrapper = styled.div`
+  width: 100%;
+`;

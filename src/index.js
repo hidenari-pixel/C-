@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
 import { Provider } from "react-redux";
-import { store } from "./modules/Reducers";
+import { store } from "./modules/Modules";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
@@ -15,7 +15,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

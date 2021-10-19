@@ -1,3 +1,4 @@
+import React from "react";
 import MediaQuery from "react-responsive";
 import useSPButton from "../hooks/useSPButton";
 import styled from "styled-components";
@@ -7,30 +8,38 @@ const SPDisplay = () => {
   return (
     <SPDisplayWrapper>
       <MediaQuery query="(max-width: 1024px)">
-        <UpButton onPointerDown={() => buttonAction("ArrowUp")}></UpButton>
-        <RightButton
-          onPointerDown={() => buttonAction("ArrowRight")}
-        ></RightButton>
-        <DownButton
-          onPointerDown={() => buttonAction("ArrowDown")}
-        ></DownButton>
-        <LeftButton
-          onPointerDown={() => buttonAction("ArrowLeft")}
-        ></LeftButton>
+        <ButtonWrapper>
+          <UpButton onPointerDown={() => buttonAction("ArrowUp")}></UpButton>
+          <RightButton
+            onPointerDown={() => buttonAction("ArrowRight")}
+          ></RightButton>
+          <DownButton
+            onPointerDown={() => buttonAction("ArrowDown")}
+          ></DownButton>
+          <LeftButton
+            onPointerDown={() => buttonAction("ArrowLeft")}
+          ></LeftButton>
+        </ButtonWrapper>
       </MediaQuery>
     </SPDisplayWrapper>
   );
 };
 
 const SPDisplayWrapper = styled.div`
-  position: absolute;
-  top: 70%;
-  left: 45%;
-  width: 150px;
-  height: 150px;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ButtonWrapper = styled.div`
+  position: relative;
+  width: 12%;
+  height: 30%;
   display: flex;
   justify-content: center;
-  align-item: center;
+  align-self: center;
 `;
 
 const Button = styled.div`

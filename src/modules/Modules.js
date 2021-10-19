@@ -103,7 +103,7 @@ const initialState = {
   squareLength: 500,
 };
 
-export const currentState = createSlice({
+export const mazeSlice = createSlice({
   name: "mazeState",
   initialState,
   reducers: {
@@ -216,5 +216,5 @@ export const currentState = createSlice({
 });
 
 export const store = configureStore({
-  reducer: currentState.reducer,
+  reducer: mazeSlice.reducer,
 });

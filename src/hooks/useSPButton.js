@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { currentState, getKeyArray, X, Y } from "../modules/Reducers";
+import { mazeSlice, getKeyArray, X, Y } from "../modules/Modules";
 
 const useSPButton = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const useSPButton = () => {
       nextY: nextPoint[Y],
       key: key,
     };
-    const movePoint = currentState.actions.movePoint(payload);
+    const movePoint = mazeSlice.actions.movePoint(payload);
     dispatch(movePoint);
   };
   return {

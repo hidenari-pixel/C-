@@ -6,11 +6,12 @@ const Header = () => {
 };
 
 const HeaderStyle = styled.header`
-  border-bottom: solid 2px #999;
+  border-bottom: solid 1px #ccc;
   font-size: 1.8rem;
   color: #000044;
-  background-color: #b0c4de;
-  padding-bottom: 10px;
+  background-color: #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 export default Header;
