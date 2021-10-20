@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import useKeyBoard from "../hooks/useKeyBoard";
 import styled from "styled-components";
+import Timer from "./Timer";
 
 const Show = () => {
   const { data, size, keyDownAction, movePoint, showAnswer } = useKeyBoard();
@@ -32,41 +33,49 @@ const Show = () => {
     lineheight: sideLength,
     border: "none",
     display: "inline-block",
-    boxsizing: "border-box",
+    // boxsizing: "border-box",
   };
 
   return (
-    <MazeWrapper ref={element} height={length}>
-      {data.map((row, rowIndex) => {
-        return (
-          <div style={rowStyle} key={`row:${rowIndex}`}>
-            {row.map((point, colIndex) => {
-              const road = point;
-              return (
-                <button
-                  key={`row:${rowIndex},col:${colIndex}`}
-                  className={movePoint(rowIndex, colIndex) ? "move" : ""}
-                  style={{
-                    ...roadStyle,
-                    backgroundColor: road
-                      ? showAnswer(rowIndex, colIndex)
-                        ? "skyblue"
-                        : ""
-                      : "black",
-                  }}
-                />
-              );
-            })}
-          </div>
-        );
-      })}
-    </MazeWrapper>
+    <Wrapper>
+      <Timer />
+      <MazeWrapper ref={element} height={length}>
+        {data.map((row, rowIndex) => {
+          return (
+            <div style={rowStyle} key={`row:${rowIndex}`}>
+              {row.map((point, colIndex) => {
+                const road = point;
+                return (
+                  <button
+                    key={`row:${rowIndex},col:${colIndex}`}
+                    className={movePoint(rowIndex, colIndex) ? "move" : ""}
+                    style={{
+                      ...roadStyle,
+                      backgroundColor: road
+                        ? showAnswer(rowIndex, colIndex)
+                          ? "skyblue"
+                          : ""
+                        : "black",
+                    }}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+      </MazeWrapper>
+    </Wrapper>
   );
 };
 
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
 const MazeWrapper = styled.div`
   position: absolute;
-  top: 25%;
+  top: 160px;
   left: 50%;
   transform: translateX(-50%);
   min-width: 40%;

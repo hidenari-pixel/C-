@@ -12,7 +12,6 @@ const App = () => {
     <AppWrapper>
       <Header />
       <ModalSelect />
-      <Timer />
       <Show />
       <SPDisplay />
     </AppWrapper>
