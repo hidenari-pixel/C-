@@ -33,45 +33,37 @@ const Show = () => {
     lineheight: sideLength,
     border: "none",
     display: "inline-block",
-    // boxsizing: "border-box",
+    boxsizing: "border-box",
   };
 
   return (
-    <Wrapper>
-      <Timer />
-      <MazeWrapper ref={element} height={length}>
-        {data.map((row, rowIndex) => {
-          return (
-            <div style={rowStyle} key={`row:${rowIndex}`}>
-              {row.map((point, colIndex) => {
-                const road = point;
-                return (
-                  <button
-                    key={`row:${rowIndex},col:${colIndex}`}
-                    className={movePoint(rowIndex, colIndex) ? "move" : ""}
-                    style={{
-                      ...roadStyle,
-                      backgroundColor: road
-                        ? showAnswer(rowIndex, colIndex)
-                          ? "skyblue"
-                          : ""
-                        : "black",
-                    }}
-                  />
-                );
-              })}
-            </div>
-          );
-        })}
-      </MazeWrapper>
-    </Wrapper>
+    <MazeWrapper ref={element} height={length}>
+      {data.map((row, rowIndex) => {
+        return (
+          <div style={rowStyle} key={`row:${rowIndex}`}>
+            {row.map((point, colIndex) => {
+              const road = point;
+              return (
+                <button
+                  key={`row:${rowIndex},col:${colIndex}`}
+                  className={movePoint(rowIndex, colIndex) ? "move" : ""}
+                  style={{
+                    ...roadStyle,
+                    backgroundColor: road
+                      ? showAnswer(rowIndex, colIndex)
+                        ? "skyblue"
+                        : ""
+                      : "black",
+                  }}
+                />
+              );
+            })}
+          </div>
+        );
+      })}
+    </MazeWrapper>
   );
 };
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`;
 
 const MazeWrapper = styled.div`
   position: absolute;
